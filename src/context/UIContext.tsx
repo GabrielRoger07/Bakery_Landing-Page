@@ -31,7 +31,6 @@ type UIContextValue = {
   rejectCookies: () => void;
 
   scrolled: boolean;
-  hideHeader: boolean;
   activeSection: string;
 };
 
@@ -54,10 +53,8 @@ export function UIProvider({ children }: { children: React.ReactNode }) {
   const [cookieConsent, setCookieConsent] = useState<CookieConsent>(undefined);
 
   const [scrolled, setScrolled] = useState(false);
-  const [hideHeader, setHideHeader] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
-  const lastY = useRef(0);
   const raf = useRef<number | null>(null);
 
   useEffect(() => {
@@ -75,11 +72,6 @@ export function UIProvider({ children }: { children: React.ReactNode }) {
       const y = window.scrollY;
       const vh = window.innerHeight;
 
-      let hide = hideHeader;
-      if (y - lastY.current > 6 && y > vh * 0.8) hide = true;
-      else if (lastY.current - y > 6 || y < vh * 0.8) hide = false;
-      lastY.current = y;
-
       let sec = "";
       for (const id of SECTION_IDS) {
         const el = document.getElementById(id);
@@ -87,7 +79,6 @@ export function UIProvider({ children }: { children: React.ReactNode }) {
       }
 
       setScrolled(y > 40);
-      setHideHeader(hide);
       setActiveSection(sec);
     };
 
@@ -102,7 +93,6 @@ export function UIProvider({ children }: { children: React.ReactNode }) {
       window.removeEventListener("scroll", onScroll);
       if (raf.current) cancelAnimationFrame(raf.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -158,7 +148,6 @@ export function UIProvider({ children }: { children: React.ReactNode }) {
       acceptCookies,
       rejectCookies,
       scrolled,
-      hideHeader,
       activeSection,
     }),
     [
@@ -175,7 +164,6 @@ export function UIProvider({ children }: { children: React.ReactNode }) {
       acceptCookies,
       rejectCookies,
       scrolled,
-      hideHeader,
       activeSection,
     ],
   );

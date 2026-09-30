@@ -74,8 +74,8 @@ export function About() {
       const rect = sec.getBoundingClientRect();
       const span = sec.offsetHeight - window.innerHeight;
       const q = span > 0 ? Math.min(1, Math.max(0, -rect.top / span)) : 0;
+      const p = Math.min(1, Math.max(0, (q * 4 - 0.5) / 3));
       const n = Math.min(3, Math.floor(q * 4));
-      const p = Math.min(1, (q * 4) / 3);
       if (n !== stepRef.current) goStep(n, true);
       if (lineRef.current) lineRef.current.style.width = `calc((100% - 24px) * ${p})`;
     };

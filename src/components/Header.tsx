@@ -5,15 +5,15 @@ import { useUI } from "@/context/UIContext";
 import { NAV, COMPANY } from "@/data/site";
 
 export function Header() {
-  const { menuOpen, toggleMenu, scrolled, hideHeader, activeSection, openOrder } = useUI();
+  const { menuOpen, toggleMenu, scrolled, activeSection, openOrder } = useUI();
 
   const showSolidBg = scrolled && !menuOpen;
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-[90] text-cream transition-[background-color,transform] duration-500 ${
+      className={`fixed inset-x-0 top-0 z-[90] text-cream transition-colors duration-500 ${
         showSolidBg ? "bg-bg" : "bg-transparent"
-      } ${hideHeader && !menuOpen ? "-translate-y-full" : "translate-y-0"}`}
+      }`}
     >
       <div className="mx-auto flex max-w-[1320px] items-center justify-between gap-6 px-6 py-3.5">
         <a
