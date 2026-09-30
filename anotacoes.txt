@@ -1,0 +1,15 @@
+- informações de localização e contato
+- link para redes sociais
+- informações de serviços (café colonial, almoço)
+- informações "sobre nós" (fotos de antes e depois, tempo de mercado)
+- encomendas
+- link ifood e 99
+- forms para candidatura de vagas
+- política de privacidade
+- cookies
+- cardápio (pdf)
+- fotos de produtos e informações
+- nota avaliação google e feedback de cliente - depoimento
+- descrição do local
+
+menu superior com: Contato, Serviços, Cardápio, Sobre nós, Trabalhe Conosco, Avaliações
